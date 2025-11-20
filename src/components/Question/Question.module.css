@@ -1,0 +1,271 @@
+.question {
+	background: white;
+	border-radius: 10px;
+	padding: 25px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	margin-bottom: 20px;
+}
+
+.questionNumber {
+	color: #2c3e50;
+	margin-bottom: 15px;
+	font-size: 20px;
+	border-bottom: 2px solid #3498db;
+	padding-bottom: 10px;
+}
+
+.questionText {
+	font-size: 16px;
+	line-height: 1.6;
+	margin-bottom: 20px;
+	color: #34495e;
+	text-align: justify;
+}
+
+.imageContainer {
+	text-align: center;
+	margin: 20px 0;
+	padding: 15px;
+	background-color: #f8f9fa;
+	border-radius: 8px;
+	border: 1px solid #e9ecef;
+}
+
+.imageContainer img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.answerSection {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+	margin-top: 25px;
+}
+
+.answerColumn {
+	background-color: #f8f9fa;
+	padding: 20px;
+	border-radius: 8px;
+	border: 1px solid #e9ecef;
+}
+
+.quantityTitle {
+	color: #2c3e50;
+	margin-bottom: 15px;
+	font-size: 16px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.options {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.option {
+	display: flex;
+	align-items: center;
+	padding: 12px 15px;
+	background-color: white;
+	border: 2px solid #e9ecef;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s;
+	font-size: 14px;
+}
+
+.option:hover {
+	background-color: #e9ecef;
+	border-color: #3498db;
+}
+
+.option input {
+	margin-right: 12px;
+	transform: scale(1.1);
+}
+
+.option input:checked + span {
+	font-weight: bold;
+	color: #2980b9;
+}
+
+.option input:checked {
+	accent-color: #3498db;
+}
+/* Стили для нового формата вопросов (выбор утверждений) */
+.statementsSection {
+	margin-top: 25px;
+	padding: 20px;
+	background-color: #f8f9fa;
+	border-radius: 10px;
+	border: 1px solid #e9ecef;
+}
+
+.statementsTitle {
+	color: #2c3e50;
+	margin-bottom: 20px;
+	font-size: 18px;
+	font-weight: 600;
+	text-align: center;
+	padding-bottom: 10px;
+	border-bottom: 2px solid #3498db;
+}
+
+.statementsList {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-bottom: 15px;
+}
+
+.statementOption {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 15px;
+	border: 2px solid #e0e0e0;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	background: white;
+	position: relative;
+}
+
+.statementOption:hover {
+	border-color: #3498db;
+	background: #f0f8ff;
+	transform: translateY(-1px);
+	box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
+}
+
+.statementOption input[type='checkbox'] {
+	margin-top: 2px;
+	transform: scale(1.2);
+	accent-color: #3498db;
+}
+
+.statementOption span {
+	flex: 1;
+	line-height: 1.5;
+	color: #2c3e50;
+	font-size: 14px;
+}
+
+.statementOption input[type='checkbox']:checked + span {
+	font-weight: 600;
+	color: #2980b9;
+}
+
+.statementOption input[type='checkbox']:checked ~ span::before {
+	content: '✓ ';
+	color: #27ae60;
+	font-weight: bold;
+}
+
+.statementOption:has(input[type='checkbox']:checked) {
+	border-color: #27ae60;
+	background-color: #f0fff4;
+	box-shadow: 0 2px 8px rgba(39, 174, 96, 0.15);
+}
+
+.statementOption:has(input[type='checkbox']:disabled) {
+	opacity: 0.6;
+	cursor: not-allowed;
+	background-color: #f8f9fa;
+}
+
+.statementOption:has(input[type='checkbox']:disabled):hover {
+	border-color: #e0e0e0;
+	transform: none;
+	box-shadow: none;
+}
+
+.selectionHint {
+	text-align: center;
+	font-size: 14px;
+	color: #7f8c8d;
+	padding: 10px;
+	background: white;
+	border-radius: 6px;
+	border: 1px solid #e9ecef;
+	font-weight: 500;
+}
+
+.selectionHint.warning {
+	color: #e74c3c;
+	background-color: #fdf2f2;
+	border-color: #fadbd8;
+}
+
+.selectionHint.success {
+	color: #27ae60;
+	background-color: #f0fff4;
+	border-color: #d5f4e6;
+}
+
+/* Адаптивность для нового формата */
+@media (max-width: 768px) {
+	.statementsSection {
+		padding: 15px;
+		margin-top: 20px;
+	}
+
+	.statementsTitle {
+		font-size: 16px;
+		margin-bottom: 15px;
+	}
+
+	.statementOption {
+		padding: 12px;
+		gap: 10px;
+	}
+
+	.statementOption span {
+		font-size: 13px;
+	}
+
+	.statementOption input[type='checkbox'] {
+		transform: scale(1.1);
+	}
+}
+
+@media (max-width: 480px) {
+	.statementsSection {
+		padding: 12px;
+	}
+
+	.statementsTitle {
+		font-size: 15px;
+	}
+
+	.statementOption {
+		padding: 10px;
+	}
+
+	.statementOption span {
+		font-size: 12px;
+	}
+
+	.selectionHint {
+		font-size: 13px;
+		padding: 8px;
+	}
+}
+@media (max-width: 768px) {
+	.answerSection {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+
+	.question {
+		padding: 15px;
+	}
+
+	.answerColumn {
+		padding: 15px;
+	}
+}
